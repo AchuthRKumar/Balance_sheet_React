@@ -1,38 +1,126 @@
-.App {
+/* src/App.css */
+
+body {
+  font-family: 'Montserrat', sans-serif; /* Modern font */
+  background: linear-gradient(to right, #ffeaa7, #fdcb6e); /* Warm gradient background */
+  margin: 0;
+  padding: 20px;
+  color: #2c3e50; /* Dark text */
+}
+
+h1, h2 {
   text-align: center;
+  color: #2980b9; /* Primary color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.transaction-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+form, .balance {
+  background: #ffffff; /* Clean white background */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  flex: 1;
+  margin: 0 10px; /* Spacing between form and balance */
+  transition: transform 0.3s, box-shadow 0.3s; /* Animation on hover */
+}
+
+form:hover, .balance:hover {
+  transform: scale(1.02); /* Subtle scale on hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+label {
+  font-weight: 500;
+  margin: 10px 0 5px;
+  color: #2980b9; /* Primary color */
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 80%; /* Set a smaller width for inputs */
+  max-width: 300px; /* Maximum width for larger screens */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  transition: border-color 0.3s, transform 0.3s; /* Animation on focus */
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #2980b9; /* Highlight color on focus */
+  outline: none;
+  box-shadow: 0 0 8px rgba(41, 128, 185, 0.5); /* Soft shadow */
+  transform: scale(1.02); /* Slight scale effect on focus */
+}
+
+button {
+  width: 80%; /* Button width to match input fields */
+  max-width: 300px; /* Maximum width for larger screens */
+  padding: 12px 20px;
+  background-color: #2980b9; /* Primary button color */
   color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Animation on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #1a6f8c; /* Darker shade on hover */
+  transform: translateY(-2px) scale(1.05); /* Lift and scale effect on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.transaction-table th, .transaction-table td {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: left;
+}
+
+.transaction-table th {
+  background-color: #2980b9; /* Primary header color */
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.transaction-table tr:nth-child(even) {
+  background-color: #f1f1f1; /* Light background for even rows */
+}
+
+.transaction-table tr:hover {
+  background-color: #dcdcdc; /* Highlight row on hover */
+}
+
+.transaction-table td {
+  border-bottom: 1px solid #ddd; /* Add border below each cell */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .transaction-container {
+      flex-direction: column;
+      align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  form, .balance {
+      width: 100%; /* Full width on smaller screens */
+      margin: 0 0 20px; /* Spacing for bottom margin */
   }
 }
